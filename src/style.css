@@ -1,0 +1,254 @@
+/* || GLOBAL */
+
+:root {
+    --text-bg-color: rgba(34, 34, 34, 0.7);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #101010;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* || SITEWIDE UX */
+
+div#outer-wrapper {
+    --aspect-ratio: 1.2; /* W:H */
+
+    margin: auto;
+    width: clamp(500px, 100vw, calc(95vh/var(--aspect-ratio)));
+    height: clamp(calc(var(--aspect-ratio)*500px), calc(var(--aspect-ratio)*100vw), 97vh);
+
+    display: flex;
+    /* background-color: #003e79; */
+}
+
+div#content-wrapper {
+    height: 100%;
+    flex-grow: 1;
+
+    min-width: 0;
+
+    /* background-color: white; */
+}
+
+
+nav#tab-wrapper {
+    height: 100%;
+    /* width: clamp(40px, 60px, 10%); */
+
+    flex: 0 0 clamp(40px, 60px, 10%);
+
+    border-left: 1px solid black;
+
+    display: block;
+}
+
+button.js-nav__tab {
+    /* writing-mode: vertical-lr; */
+    padding: 25px 0 25px 0;
+    width: 100%;
+    line-height: 100%;
+
+    font-family: inherit;
+    font-variant: small-caps;
+
+    border: none;
+    
+    border-bottom: 1px solid black;
+    background-color: rgb(223, 200, 122);
+
+    cursor: pointer;
+
+    transition: background-color 150ms ease-in-out, transform 150ms ease;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button.js-nav__tab:hover,
+button.js-nav__tab:focus {
+    background-color: rgb(185, 165, 99);
+}
+
+button.js-nav__tab:focus {
+    outline: white dashed 2px;
+    outline-offset: 2px;
+    isolation: isolate; /* trigger new stacking context so outline renders on top of siblings */
+}
+
+button.js-nav__tab:active {
+    transform: scale(0.97);
+}
+
+button.js-nav__tab:not(:first-child) {
+    box-shadow: inset 0px 10px 4px -10px black;
+}
+
+.vertical-text {
+    writing-mode: vertical-lr; /* writing-mode: vertical-lr doesn't work for buttons in Chrome */
+}
+
+/* || HOME PAGE */
+
+.js-home__wrapper {
+    --title-ratio: 25%;
+    --description-ratio: 15%;
+    --reviews-ratio: 25%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    height: 100%;
+    width: 100%;
+
+    /* background-image: url("./assets/home/HOME-bg.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.js-home__title-wrapper {
+    width: 100%;
+    background-color: var(--text-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20%;
+
+    flex-basis: var(--title-ratio);
+}
+
+.js-home__logo {
+    max-width: 90%;
+    max-height: 84%;
+}
+
+.js-home__description {
+    background-color: var(--text-bg-color);
+    color: rgb(235, 235, 235);
+    font-size: 24px;
+
+    flex-basis: var(--description-ratio);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.js-home__reviews-wrapper {
+    background-color: var(--text-bg-color);
+    color: rgb(235, 235, 235);
+    font-size: 18px;
+
+    flex-basis: var(--reviews-ratio);
+
+    overflow: hidden;
+}
+
+@keyframes slide_reel { from { left: 0; } to { left: -500%; } }
+
+.js-reviews__reel {
+    margin: 0;
+    padding: 0;
+
+    height: 100%;
+    left: 0;
+    position: relative;
+    display: flex;
+
+    transition: left 0s;
+}
+
+.js-reviews__individual-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 100%;
+}
+
+.js-reviews__message {
+
+}
+
+.js-reviews__author {
+    
+}
+
+.js-reviews__reel--slide {
+    left: -100%;
+    transition: left ease-in-out 2s;
+}
+
+@media (prefers-reduced-motion) {
+    .js-reviews__reel--slide {
+        left: -100%;
+        transition: left 0s;
+    }
+}
+
+/* || MENU PAGE */
+.js-menu__wrapper {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+.js-menu__header {
+    background-color: var(--text-bg-color);
+    color: white;
+
+    width: 100%;
+
+    margin-top: 15%;
+    
+    text-align: center;
+    font-size: 58px;
+}
+
+.js-menu__list {
+    background-color: var(--text-bg-color);
+    color: white;
+
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.js-menu__item {
+    margin-bottom: 20px;
+}
+
+/* .js-menu__item-name {
+    color: white;
+}
+
+.js-menu__item-price {
+    color: white;
+} */

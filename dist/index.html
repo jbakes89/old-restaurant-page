@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Restaurant Page</title>
+        <title>Trois Oeufs</title>
+        <meta name="author" content="Joseph Bakes">
+        <meta name="description" content="A mock-up of a restaurant page using tab-based navigation
+        to dynamically load content, created as part of The Odin Project.">
     </head>
     <body>
-        <div id="content"></div>
+        <div id="outer-wrapper">
+            <div id="content-wrapper"></div>
+            <nav id="tab-wrapper">
+                <button id="home-tab" class="js-nav__tab"><span class="vertical-text">Home</span></button>
+                <button id="menu-tab" class="js-nav__tab"><span class="vertical-text">Menu</span></button>
+                <button id="contact-tab" class="js-nav__tab"><span class="vertical-text">Contact Us</span></button>
+            </nav>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>
